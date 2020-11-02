@@ -10,7 +10,7 @@ import { ErrorHandlerService } from './error-handler.service';
 })
 export class NewsService {
 
- url: string = '../../assets/newsapi.json'
+ url: string = './assets/newsapi.json'
 
   constructor(private http: HttpClient, private handleError: ErrorHandlerService) { }
 
