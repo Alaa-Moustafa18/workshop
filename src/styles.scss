@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./scss/vars";
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
+body {
+  color: $text-color;
+  font-family: "Raleway", sans-serif;
+}
+h1,
+h2 {
+  text-transform: capitalize;
+}
+.tooltip.show {
+  opacity: 0.6 !important;
+  .tooltip-arrow {
+    visibility: hidden;
+  }
+}
+
+.card-link {
+  color: $secondry-color;
+}
+.breadcrumb {
+  background-color: transparent;
+  padding-left: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  li {
+    text-transform: capitalize;
+    a {
+      color: $primary-color;
+
+      font-size: 18px;
+    }
+    &.active {
+      a {
+        color: #6c757d;
+      }
+    }
+  }
+}
+.card {
+  margin-bottom: 20px;
+}
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:disabled,
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: $secondry-color;
+  border-color: $secondry-color;
+}

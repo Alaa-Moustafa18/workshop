@@ -1,0 +1,31 @@
+@import "../../../scss/vars";
+footer {
+  background-color: $bg-color;
+  text-transform: capitalize;
+  padding-top: 20px;
+  .form-control {
+    border-radius: 0;
+  }
+  .input-group-text {
+    padding: 0;
+    border-radius: 0;
+    border: 0;
+    .btn {
+      border-radius: 0;
+    }
+  }
+  a.nav-link {
+    color: $text-color;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      color: $secondry-color;
+    }
+  }
+  .copy-right {
+    background-color: $primary-color;
+    color: #fff;
+    i {
+      margin: 0 5px;
+    }
+  }
+}

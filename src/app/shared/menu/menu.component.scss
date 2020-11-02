@@ -1,0 +1,22 @@
+@import "../../../scss/vars";
+.menu {
+  background-color: $primary-color;
+  display: flex;
+  height: calc(100vh - 100px);
+  position: fixed;
+  width: 33%;
+  z-index: 9;
+  overflow-y: auto;
+  @media screen and (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
+  a.nav-link {
+    color: #fff;
+  }
+  .social-media {
+    display: flex;
+    align-items: flex-end;
+    width: 100px;
+    bottom: 0;
+  }
+}

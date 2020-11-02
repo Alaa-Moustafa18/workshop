@@ -1,0 +1,137 @@
+<section class="new-listing">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page">
+          <a routerLink="/">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">news</li>
+      </ol>
+    </nav>
+    <h1>News</h1>
+    <div class="search-bar">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group">
+            <label for="from">from</label>
+            <div class="input-group mb-2 mr-sm-2">
+              <input
+                type="text"
+                class="form-control"
+                id="from"
+                placeholder="select"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label for="from">to</label>
+            <div class="input-group mb-2 mr-sm-2">
+              <input
+                type="date"
+                class="form-control"
+                id="to"
+                placeholder="select"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label for="from">category</label>
+            <select class="custom-select" [(ngModel)]="selectedValue">
+              <option *ngFor="let category of categories" [value]="category.id">
+                {{ category.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="form-group">
+            <label for="from"></label>
+            <div class="input-group mb-2 mr-sm-2">
+              <input
+                type="text"
+                class="form-control"
+                id="serach"
+                placeholder="serach services"
+                [(ngModel)]="filterText"
+                (keydown.enter)="search()"
+              />
+              <div class="input-group-prepend">
+                <div class="input-group-text" (click)="search()">
+                  <i class="fas fa-search"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1">
+          <div class="sort mb-4">
+            <p>sort by <i class="fas fa-sort"></i></p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <div
+          class="spinner-border text-success"
+          style="width: 3rem; height: 3rem"
+          role="status"
+          *ngIf="loading"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <ng-container *ngIf="filteredArr.length > 0">
+        <div
+          class="col-md-4"
+          *ngFor="
+            let article of filteredArr
+              | sortDate: 'publishedAt'
+              | slice: 0:(showAll ? undefined : 12);
+            index as i
+          "
+        >
+          <div class="card">
+            <img
+              [src]="article.urlToImage"
+              class="card-img-top"
+              [alt]="article.urlToImage"
+            />
+            <div class="card-body">
+              <a class="title" [routerLink]="i"
+                ><h5 class="card-title">{{ article.title }}</h5></a
+              >
+              <p class="card-text">{{ article.description }}</p>
+              <a href="#" class="card-link"
+                ><i class="fas fa-calendar-alt"></i>
+                {{ article.publishedAt | date: "E d MMM yyyy" }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="filteredArr.length == 0">
+        <p>there is no data</p>
+      </ng-container>
+    </div>
+    <div class="row">
+      <div class="col-md-12 pb-5">
+        <div class="text-center">
+          <button
+            class="btn btn-primary"
+            [disabled]="showAll"
+            (click)="loadMore()"
+          >
+            load more
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <router-outlet></router-outlet> -->

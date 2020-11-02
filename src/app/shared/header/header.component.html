@@ -1,0 +1,81 @@
+<nav class="navbar sticky-top navbar-light">
+  <div class="container">
+    <div class="navbar-collapse">
+      <div class="row">
+        <div class="col-6 col-sm-5 col-md-4">
+          <a class="navbar-brand" (click)="toggleMenu()"
+            ><i
+              @rotate
+              [ngClass]="menuService.showMenu ? 'fas fa-times' : 'fas fa-bars'"
+            ></i
+          ></a>
+          <a class="logo" href="#"
+            ><img src="../../../assets/logo.png" alt="link-developement"
+          /></a>
+        </div>
+        <div class="col-6 col-sm-7 col-md-8">
+          <ul class="nav my-2 my-lg-0 justify-content-end">
+            <li class="nav-item search-list d-none d-md-block">
+              <div class="search-group d-flex">
+                <input
+                  type="text"
+                  class="form-control serach-input"
+                  placeholder="Search"
+                  *ngIf="showSearch"
+                  @fade
+                />
+                <a class="nav-link" [ngClass]="{ hoverable: !showSearch }"
+                  ><i
+                    class="fas fa-search"
+                    trigger="mouseenter:click"
+                    tooltip="search"
+                    placement="bottom"
+                    (click)="toggleSearch()"
+                  ></i
+                ></a>
+              </div>
+            </li>
+            <li class="nav-item hoverable">
+              <a class="nav-link" href="#"
+                ><i
+                  class="far fa-bell"
+                  tooltip="notifications"
+                  placement="bottom"
+                ></i
+              ></a>
+            </li>
+            <li class="nav-item profile">
+              <a class="nav-link d-flex align-items-center" href="#">
+                <img
+                  src="https://via.placeholder.com/50/92c952"
+                  alt="link-developement"
+                  class="img-circle d-none d-md-block"
+                />
+                <span>user name</span>
+              </a>
+            </li>
+            <li class="nav-item hoverable dropdown" appDropdown>
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="fas fa-cog" tooltip="settings" placement="bottom"></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

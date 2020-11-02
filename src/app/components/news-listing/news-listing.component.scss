@@ -1,0 +1,26 @@
+@import "../../../scss/vars";
+
+.new-listing {
+  background-color: #e9ecef;
+  .search-bar {
+    margin: 20px 0;
+    .row {
+      align-items: flex-end;
+      label {
+        text-transform: capitalize;
+      }
+
+      .input-group-text {
+        background-color: $secondry-color;
+        color: #fff;
+      }
+    }
+  }
+  a.title,
+  .sort {
+    color: $secondry-color;
+  }
+  .sort {
+    cursor: pointer;
+  }
+}
