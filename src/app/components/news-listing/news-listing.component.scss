@@ -1,6 +1,9 @@
 @import "../../../scss/vars";
 
 .new-listing {
+  h2 {
+    color: #000;
+  }
   background-color: #e9ecef;
   .search-bar {
     margin: 20px 0;

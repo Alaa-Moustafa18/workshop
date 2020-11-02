@@ -19,12 +19,7 @@ export class NewsListingComponent implements OnInit {
  selectedValue: number;
  filterText: string;
  loading: boolean = false;
-
- 
- 
-  constructor(private newService: NewsService, private router: Router, private filterPipe: FilterPipe) {}
-
-
+   constructor(private newService: NewsService, private router: Router, private filterPipe: FilterPipe) {}
   ngOnInit(): void {
       this.newService.getNews().subscribe(res => {
         this.articles = res['articles'];
@@ -39,8 +34,10 @@ export class NewsListingComponent implements OnInit {
       this.loading = !this.loading
       setTimeout(() => {
         this.loading = !this.loading
-        this.filteredArr = this.filterPipe.transform(this.articles,this.selectedValue, "sourceID", "title", this.filterText);     
-        this.showAll = true
+        if(this.selectedValue){
+          this.filteredArr = this.filterPipe.transform(this.articles,this.selectedValue, "sourceID", "title", this.filterText);     
+          this.showAll = true
+        }
       }, 2000);
     }
 }

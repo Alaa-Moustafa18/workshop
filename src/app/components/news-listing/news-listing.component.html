@@ -115,7 +115,11 @@
         </div>
       </ng-container>
       <ng-container *ngIf="filteredArr.length == 0">
-        <p>there is no data</p>
+        <div class="row">
+          <div class="col-12">
+            <h2 class="text-center">no data matched your search</h2>
+          </div>
+        </div>
       </ng-container>
     </div>
     <div class="row">
